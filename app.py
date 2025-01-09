@@ -17,8 +17,6 @@ def survey():
         return render_template('thank_you.html')
     return render_template('survey.html', questions=survey_questions)
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000)
-
-# Vercel 需要这个
-application = app.wsgi_app 
+# Vercel 处理函数
+def handler(event, context):
+    return app 
